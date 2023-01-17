@@ -6,15 +6,15 @@ const LandingPage = () => {
   const { Title } = Typography;
 
   return (
-    <Layout>
+    <Layout className="landingPage">
       <Content style={{ padding: "50px" }}>
-        <Title level={2}>Welcome to the Galleria</Title>
-        <p>
-          This web app allows you to view and manage users and their albums. You
-          can view a list of all users, view a specific user's information and
-          albums, view a specific album's information and photos, and edit a
-          photo's title.
-        </p>
+        <Title level={2} style={{ color: "white" }}>
+          Welcome to the Galleria
+        </Title>
+        <Typography.Paragraph style={{ color: "white" }}>
+          Galleria is your home of art. We have a wide range of art pieces from
+          different artists. You can view the art pieces and also purchase them.
+        </Typography.Paragraph>
       </Content>
     </Layout>
   );
