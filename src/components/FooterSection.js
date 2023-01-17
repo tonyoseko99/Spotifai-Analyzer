@@ -5,8 +5,8 @@ const { Footer } = Layout;
 
 function FooterSection() {
   return (
-    <Footer style={{ textAlign: "center" }}>
-      Galleria ©2021 Created by <strong>Galleria-Tech</strong>
+    <Footer className="footer">
+      Galleria ©2021 Created by Galleria-Tech
     </Footer>
   );
 }

@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 function Header() {
   return (
     <Menu mode="horizontal">
-      <Menu.Item key="home">
-        <Link to="/">Home</Link>
+      <Menu.Item key="home" className="home-logo">
+        <Link to="/">GALLERIA</Link>
       </Menu.Item>
       <Menu.Item key="art">
         <Link to="/art">Art</Link>
