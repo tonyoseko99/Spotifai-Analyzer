@@ -1,6 +1,6 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
-import Home from "./Home";
+import Home from "../components/Home";
 
 describe("Home", () => {
   it("should render the correct number of albums for each user", () => {
