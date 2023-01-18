@@ -51,7 +51,7 @@ function Home() {
   return (
     <div>
       <Card title="Users" loading={loading}>
-        <Table columns={columns} dataSource={users} dataIndex={} />
+        <Table columns={columns} dataSource={users} rowKey="id" />
       </Card>
     </div>
   );
