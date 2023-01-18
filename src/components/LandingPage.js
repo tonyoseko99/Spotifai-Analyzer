@@ -1,5 +1,12 @@
 import React from "react";
-import { Button, Layout, Typography } from "antd";
+import { Button, Layout, Typography, Carousel } from "antd";
+const contentStyle = {
+  height: "160px",
+  color: "#fff",
+  lineHeight: "160px",
+  textAlign: "center",
+  background: "linear-gradient(135deg, #adb2b4 0%, #44464a 135%)"
+};
 
 const LandingPage = () => {
   const { Content } = Layout;
@@ -44,6 +51,19 @@ const LandingPage = () => {
         <Button type="primary" size="large" ghost="true">
           <a href="/home">View Artists</a>
         </Button>
+      </Content>
+      <Content className="carousel-content">
+        <Carousel autoplay>
+          <div>
+            <h3 style={contentStyle}>1</h3>
+          </div>
+          <div>
+            <h3 style={contentStyle}>2</h3>
+          </div>
+          <div>
+            <h3 style={contentStyle}>3</h3>
+          </div>
+        </Carousel>
       </Content>
     </Layout>
   );

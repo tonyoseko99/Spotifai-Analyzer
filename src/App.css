@@ -80,8 +80,9 @@
 }
 /* end */
 
-.landingPage-2 {
-  background:linear-gradient(90deg,#C0C0C0 0%,#E9F7FF 100%);
+.landingPage-2,
+.landingPage-3 {
+  background: linear-gradient(90deg, #c0c0c0 0%, #e9f7ff 100%);
   width: 100%;
   display: flex;
   justify-content: center;
@@ -90,6 +91,10 @@
   color: #f5f5f5;
   font-size: 16px;
   height: 100vh !important;
+}
+
+.carousel-content {
+  
   
 }
 
