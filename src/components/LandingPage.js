@@ -24,16 +24,16 @@ const LandingPage = () => {
           of art pieces from different artists. You can view the art pieces and
           also purchase them.
         </Title>
-        <Button type="primary" size="large" ghost="true">
+        <Button>
           <a href="/home">View Art</a>
         </Button>
       </Content>
 
       <Content className="landingPage-2">
-        <Title level={2} style={{ color: "white" }}>
+        <Title level={2}>
           Meet the Artists
         </Title>
-        <Title level={5} style={{ color: "white", width: "43%" }}>
+        <Title level={5} style={{ width: "43%" }}>
           We have a wide range of artists from different parts of the world. We
           have artists from the United States, United Kingdom, Canada, and
           Australia. We have artists from different backgrounds and different
@@ -52,19 +52,7 @@ const LandingPage = () => {
           <a href="/home">View Artists</a>
         </Button>
       </Content>
-      <Content className="carousel-content">
-        <Carousel autoplay>
-          <div>
-            <h3 style={contentStyle}>1</h3>
-          </div>
-          <div>
-            <h3 style={contentStyle}>2</h3>
-          </div>
-          <div>
-            <h3 style={contentStyle}>3</h3>
-          </div>
-        </Carousel>
-      </Content>
+      
     </Layout>
   );
 };

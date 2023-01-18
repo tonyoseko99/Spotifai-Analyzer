@@ -21,7 +21,15 @@
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
-  padding: 0.5rem;
+  margin: 10px 30px;
+  padding: 10px;
+}
+
+.appHeader > div > a {
+  text-decoration: none;
+  color: #f5f5f5;
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
 /* end of app header */
@@ -68,7 +76,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0.7;
+  opacity: 0.6;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -80,15 +88,14 @@
 }
 /* end */
 
-.landingPage-2,
-.landingPage-3 {
+.landingPage-2 {
   background: linear-gradient(90deg, #c0c0c0 0%, #e9f7ff 100%);
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  color: #f5f5f5;
+  color: #44464a !important;
   font-size: 16px;
   height: 100vh !important;
 }
@@ -108,7 +115,7 @@
 
 /* footer section */
 .footer {
-  background: linear-gradient(90deg, #2e5584 -30%, #031c33 60%);
+  background:linear-gradient(135deg,#ADB2B4 0%,#44464A 135%);
   height: 60px;
   width: 100%;
   display: flex;
