@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Form, Input, Button, Checkbox, Space, Typography } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 
-const Login = () => {
+const Register = () => {
   const [form] = Form.useForm();
   const [formError, setFormError] = useState(null);
 
@@ -25,7 +25,7 @@ const Login = () => {
       onFinishFailed={onFinishFailed}
     >
       <Space direction="vertical" align="center" style={{ width: "100%" }}>
-        <Typography.Title level={2}>Login</Typography.Title>
+        <Typography.Title level={2}>Register</Typography.Title>
         <Form.Item
           name="username"
           rules={[{ required: true, message: "Please input your Username!" }]}
@@ -66,11 +66,11 @@ const Login = () => {
           >
             Log in
           </Button>
-          new user? <a href="/register">register now!</a>
+          have an account?<a href="/login">sign in</a>
         </Form.Item>
       </Space>
     </Form>
   );
 };
 
-export default Login;
+export default Register;

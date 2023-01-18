@@ -93,9 +93,17 @@
   height: 100vh !important;
 }
 
-.carousel-content {
-  
-  
+/* login-form */
+.login-form {
+  background: linear-gradient(90deg, #c0c0c0 0%, #e9f7ff 100%);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #f5f5f5;
+  font-size: 16px;
+  height: 100vh !important;
 }
 
 /* footer section */
