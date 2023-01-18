@@ -1,20 +1,24 @@
 import React from "react";
-import { Menu, Button } from "antd";
-import { Link } from "react-router-dom";
+import { Layout, Button } from "antd";
 
-function Header() {
+const { Header } = Layout;
+
+const AppHeader = () => {
   return (
-    <Menu mode="horizontal" theme="dark" className="appHeader">
-      <Menu.Item key="home" id="logo">
-        <Link to="/">GALLERIA</Link>
-      </Menu.Item>
-      <Menu.Item key="SignIn" id="signin-btn">
-        <Link to="/signin">
-          <Button type="link" style={{color: "black"}}>Sign In</Button>
-        </Link>
-      </Menu.Item>
-    </Menu>
+    <Header className="appHeader">
+      <div>
+        <span
+          style={{ color: "white", fontSize: "1.5rem"}}
+          id="logo"
+        >
+          Galleria
+        </span>
+        <Button type="dark" style={{ color: "white", fontSize: "1rem" }}>
+          Sign In
+        </Button>
+      </div>
+    </Header>
   );
-}
+};
 
-export default Header;
+export default AppHeader;

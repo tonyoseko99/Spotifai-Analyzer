@@ -21,9 +21,8 @@ const LandingPage = () => {
           <a href="/home">View Art</a>
         </Button>
       </Content>
-      {/* talk about artists */}
 
-      {/* <Content style={{ padding: "50px" }} className="landingPage-2">
+      <Content className="landingPage-2">
         <Title level={2} style={{ color: "white" }}>
           Meet the Artists
         </Title>
@@ -40,24 +39,12 @@ const LandingPage = () => {
           installation art and artists who are into performance art. We have
           artists who are into conceptual art and artists who are into
           environmental art. We have artists who are into street art and artists
-          who are into graffiti. We have artists who are into pop art and
-          artists who are into surrealism. We have artists who are into
-          minimalism and artists who are into realism. We have artists who are
-          into impressionism and artists who are into post-impressionism. We
-          have artists who are into cubism and artists who are into abstract
-          expressionism. We have artists who are into art deco and artists who
-          are into art nouveau. We have artists who are into art brut and
-          artists who are into art informel. We have artists who are into art
-          pop and artists who are into art rock. We have artists who are into
-          art therapy and artists who are into artivism.
+          who are into graffiti.
         </Title>
         <Button type="primary" size="large" ghost="true">
           <a href="/home">View Artists</a>
         </Button>
-      </Content> */}
-
-      {/* talk about art */}
-      {/* talk about about */}
+      </Content>
     </Layout>
   );
 };

@@ -6,7 +6,7 @@ const { Footer } = Layout;
 function FooterSection() {
   return (
     <Footer className="footer">
-      Galleria ©2021 Created by Galleria-Tech
+      Galleria ©2023 Created by Galleria-Tech
     </Footer>
   );
 }

@@ -1,26 +1,27 @@
 .App {
-  height: 100vh;
   width: 100vw;
-  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
   color: #f5f5f5;
-  font-size: 16px;
   overflow-y: hidden;
+  padding: 0;
+  margin: 0;
 }
 /* app header */
 .appHeader {
   background: linear-gradient(135deg, #adb2b4 0%, #44464a 135%);
-  height: 60px;
   width: 100%;
+  color: #f5f5f5;
+}
+
+.appHeader > div {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
-  color: #f5f5f5;
-  font-size: 16px;
+  padding: 0.5rem;
 }
 
 /* end of app header */
@@ -31,7 +32,9 @@
   font-weight: 700;
   color: #f5f5f5;
   text-decoration: none;
-  border: 2px solid #44464a;
+  border: 2px solid white;
+  border-radius: 5px;
+  padding: 0.5rem;
 }
 
 /* signin-btn */
@@ -55,13 +58,6 @@
 
 /* landing page */
 .landingPage {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
-  color: #f5f5f5;
-  font-size: 16px;
   overflow-y: scroll;
 }
 /* end of landing page */
@@ -80,10 +76,12 @@
   flex-direction: column;
   color: #f5f5f5;
   font-size: 16px;
+  height: 100vh !important;
 }
 /* end */
 
-.landingPage-2{
+.landingPage-2 {
+  background:linear-gradient(90deg,#C0C0C0 0%,#E9F7FF 100%);
   width: 100%;
   display: flex;
   justify-content: center;
@@ -91,11 +89,13 @@
   flex-direction: column;
   color: #f5f5f5;
   font-size: 16px;
+  height: 100vh !important;
+  
 }
 
 /* footer section */
 .footer {
-  background-color: black;
+  background: linear-gradient(90deg, #2e5584 -30%, #031c33 60%);
   height: 60px;
   width: 100%;
   display: flex;

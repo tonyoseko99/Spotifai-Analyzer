@@ -7,22 +7,39 @@ function Home() {
   const [albums, setAlbums] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // fetch users from 'https://jsonplaceholder.typicode.com/users'
   useEffect(() => {
     fetchUsers().then((users) => {
       setUsers(users);
-      console.log(users);
       setLoading(false);
     });
   }, []);
+
+  // fetch albums from 'https://jsonplaceholder.typicode.com/albums'
+  useEffect(() => {
+    fetchAlbums().then((albums) => {
+      // check if the album has a userId that matches the user's id
+      // if it does, add the album to the user's albums array
+      users.forEach((user) => {
+        user.albums = [];
+        albums.forEach((album) => {
+          if (album.userId === user.id) {
+            user.albums.push(album);
+          }
+        });
+      });
+      setAlbums(albums);
+      console.log(users);
+    });
+  }, [users]);
 
   return (
     <Card title="Users" loading={loading}>
       <Table dataSource={users} rowKey="id">
         <Table.Column title="Name" dataIndex="name" key="name" />
-        <Table.Column title="Username" dataIndex="username" key="username" />
-        <Table.Column title="Email" dataIndex="email" key="email" />
-        <Table.Column title="Phone" dataIndex="phone" key="phone" />
         <Table.Column title="Website" dataIndex="website" key="website" />
+        {/* number of albums */}
+        <Table.Column title="Albums" dataIndex="albums" key="albums" />
       </Table>
     </Card>
   );
