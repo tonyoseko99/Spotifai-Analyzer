@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { fetchAlbums, fetchUsers } from "../API/data";
-import { Card, Layout, Spin, Table, Typography } from "antd";
+import { Card, Divider, Layout, Spin, Table, Typography } from "antd";
 import { useParams } from "react-router-dom";
+import { Content } from "antd/es/layout/layout";
 
 function User() {
   const { id } = useParams();
@@ -39,25 +40,33 @@ function User() {
   ];
 
   return (
-    <Layout>
+    <Layout className="user-layout">
       <Typography.Title level={2} style={{ textAlign: "center" }}>
         User Details
       </Typography.Title>
-      <Typography.Paragraph style={{ textAlign: "center" }}>
-        This page shows the details of a user.
-      </Typography.Paragraph>
-      <Card title={user.name} loading={loading}>
-        <p>Email: {user.email}</p>
-        <p>Phone: {user.phone}</p>
-        <p>Website: {user.website}</p>
-      </Card>
-      <Card title="Albums" loading={loading}>
-        {loading ? (
-          <Spin />
-        ) : (
-          <Table columns={columns} dataSource={albums} rowKey="id" />
-        )}
-      </Card>
+      <Typography.Paragraph
+        style={{ textAlign: "center" }}
+      ></Typography.Paragraph>
+      <Content style={{ padding: "0 50px" }}>
+        <Card title={ user.name || "Loading..."} loading={loading}>
+          <p>Email: {user.email}</p>
+          <p>Phone: {user.phone}</p>
+          <p>Website: {user.website}</p>
+        </Card>
+        <Divider />
+        <Card title="Albums" loading={loading}>
+          {loading ? (
+            <Spin />
+          ) : (
+            <Table
+              columns={columns}
+              dataSource={albums}
+              rowKey="id"
+              sticky
+            />
+          )}
+        </Card>
+      </Content>
     </Layout>
   );
 }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { fetchUsers, fetchAlbums } from "../API/data";
-import { Card, Table } from "antd";
+import { Card, Layout, Table } from "antd";
 
 function Home() {
   const [users, setUsers] = useState([]);
@@ -25,6 +25,7 @@ function Home() {
           return { ...user, albums: userAlbums.length };
         });
         setUsers(usersWithAlbums);
+        console.log(usersWithAlbums);
       }
       setLoading(false);
     });
@@ -42,6 +43,13 @@ function Home() {
       key: "website",
     },
     {
+      title: "Company",
+      dataIndex: "company",
+      key: "company",
+      render: (company) => company["name"],
+    },
+    
+    {
       title: "Albums",
       dataIndex: "albums",
       key: "albums",
@@ -49,11 +57,26 @@ function Home() {
   ];
 
   return (
-    <div>
-      <Card title="Users" loading={loading}>
-        <Table columns={columns} dataSource={users} rowKey="id" />
+    <Layout className="home-layout">
+      <Card title="Users" loading={loading} className="home-card">
+        <Table
+          style={{ width: "100%" }}
+          columns={columns}
+          dataSource={users}
+          rowKey="id"
+          scroll={{ x: 500 }}
+          sticky // sticky header
+          onRow={(record, rowIndex) => {
+            return {
+              // onClick, redirect to user page with user id
+              onClick: (event) => {
+                window.location.href = `/users/${record.id}`;
+              },
+            };
+          }}
+        />
       </Card>
-    </div>
+    </Layout>
   );
 }
 
