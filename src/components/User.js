@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { fetchAlbums, fetchUsers } from "../API/data";
+import { Card, Table } from "antd";
 
 function User({ match }) {
   const [user, setUser] = useState({});
@@ -24,8 +25,19 @@ function User({ match }) {
     });
   }, [user]);
 
-  
-  return <div>User</div>;
+  const columns = [
+    {
+      title: "Title",
+      dataIndex: "title",
+      key: "title",
+    },
+  ];
+
+  return (
+    <div>
+      <Card title={user.name} loading={loading} style={{ width: 300 }}></Card>
+    </div>
+  );
 }
 
 export default User;
