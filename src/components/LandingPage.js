@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Button, Layout, Typography, Carousel } from "antd";
 const contentStyle = {
   height: "160px",
@@ -22,7 +23,7 @@ const LandingPage = () => {
           level={4}
           style={{
             color: "white",
-            width: "30%",
+            width: "auto",
             textAlign: "center",
             lineHeight: "1.8rem",
           }}
@@ -30,9 +31,14 @@ const LandingPage = () => {
           Galleria is your home of art. We have a wide range of art pieces from
           different artists.
         </Title>
-        <Button>
-          <a href="/users">View Art</a>
-        </Button>
+        <Link to="/users">
+          <Button
+            type="primary"
+            block
+          >
+            Get Started
+          </Button>
+        </Link>
       </Content>
     </Layout>
   );
