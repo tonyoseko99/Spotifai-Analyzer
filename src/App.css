@@ -141,6 +141,13 @@
   overflow-y: scroll;
 }
 
+/* album-photos */
+.album-photos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
 /* footer section */
 .footer {
   background: linear-gradient(135deg, #adb2b4 0%, #44464a 135%);

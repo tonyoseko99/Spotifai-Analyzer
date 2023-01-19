@@ -55,6 +55,10 @@ function Album() {
               {photos.map((photo) => (
                 <Card.Grid style={gridStyle} hoverable={false}>
                   <img
+                    onClick={() => {
+                      //   redirect to photo page
+                      window.location.href = `/photos/${photo.id}`;
+                    }}
                     src={photo.url}
                     alt={photo.title}
                     style={{ maxHeight: "100%", maxWidth: "100%" }}
