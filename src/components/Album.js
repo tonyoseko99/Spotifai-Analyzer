@@ -57,7 +57,7 @@ function Album() {
                   <img
                     onClick={() => {
                       //   redirect to photo page
-                      window.location.href = `/photos/${photo.id}`;
+                      window.location.href = `/albums/${album.id}/photos/${photo.id}`;
                     }}
                     src={photo.url}
                     alt={photo.title}

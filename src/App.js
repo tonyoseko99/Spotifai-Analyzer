@@ -9,6 +9,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import User from "./components/User";
 import Album from "./components/Album";
+import Photo from "./components/Photo";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/users" element={<Home />} />
           <Route path="/users/:id" element={<User />} />
           <Route path="/albums/:id" element={<Album />} />
+          <Route path="/albums/:id/photos/:id" element={<Photo />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
         </Routes>
