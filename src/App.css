@@ -153,6 +153,18 @@
   margin: 0 auto;
 }
 
+/* user-content */
+.user-content {
+  padding: 0 50px;;
+  margin: 0 auto;
+  width: fit-content;
+}
+
+.card{
+  width: auto;
+  margin: 0 auto;
+}
+
 /* footer section */
 .footer {
   background: linear-gradient(135deg, #adb2b4 0%, #44464a 135%);

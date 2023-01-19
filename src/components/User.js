@@ -44,17 +44,18 @@ function User() {
       <Typography.Title level={2} style={{ textAlign: "center" }}>
         User Details
       </Typography.Title>
-      <Typography.Paragraph
-        style={{ textAlign: "center" }}
-      ></Typography.Paragraph>
-      <Content style={{ padding: "0 50px" }}>
-        <Space direction="vertical" style={{ width: "100%" }}>
-          <Card title={user.name || "Loading..."} loading={loading}>
+      <Content className="user-content">
+        <Space direction="vertical">
+          <Card
+            title={user.name || "Loading..."}
+            loading={loading}
+            className="card"
+          >
             <p>Email: {user.email}</p>
             <p>Phone: {user.phone}</p>
             <p>Website: {user.website}</p>
           </Card>
-          <Card title="Albums" loading={loading}>
+          <Card title="Albums" loading={loading} className="card">
             {loading ? (
               <Spin />
             ) : (
@@ -69,7 +70,6 @@ function User() {
                     onClick: (event) => {
                       window.location.href = `/albums/${record.id}`;
                       //   pass the album id to the album page
-                      
                     },
                   };
                 }}
