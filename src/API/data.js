@@ -20,3 +20,14 @@ export const fetchPhotos = async () => {
   const photos = await response.json();
   return photos;
 };
+
+// fetch photo from 'https://jsonplaceholder.typicode.com/photos/:id'
+export const fetchPhoto = async (id) => {
+  const response = await fetch(
+    `https://jsonplaceholder.typicode.com/photos/${id}`
+  );
+  const photo = await response.json();
+  return photo;
+};
+
+
