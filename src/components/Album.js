@@ -18,7 +18,16 @@ function Album() {
     });
   }, [id]);
 
-  
+  // fetch album's photos from API
+  useEffect(() => {
+    fetchPhotos().then((photos) => {
+      const albumPhotos = photos.filter(
+        (photo) => photo.albumId === parseInt(id)
+      );
+      setPhotos(albumPhotos);
+      setLoading(false);
+    });
+  }, [id]);
 
   return <div>Album</div>;
 }
