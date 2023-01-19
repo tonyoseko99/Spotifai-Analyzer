@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { fetchAlbums, fetchUsers } from "../API/data";
-import { Card, Divider, Layout, Spin, Table, Typography } from "antd";
+import { Card, Layout, Space, Spin, Table, Typography } from "antd";
 import { useParams } from "react-router-dom";
 import { Content } from "antd/es/layout/layout";
 
@@ -48,24 +48,26 @@ function User() {
         style={{ textAlign: "center" }}
       ></Typography.Paragraph>
       <Content style={{ padding: "0 50px" }}>
-        <Card title={ user.name || "Loading..."} loading={loading}>
-          <p>Email: {user.email}</p>
-          <p>Phone: {user.phone}</p>
-          <p>Website: {user.website}</p>
-        </Card>
-        <Divider />
-        <Card title="Albums" loading={loading}>
-          {loading ? (
-            <Spin />
-          ) : (
-            <Table
-              columns={columns}
-              dataSource={albums}
-              rowKey="id"
-              sticky
-            />
-          )}
-        </Card>
+        <Space direction="vertical" style={{ width: "100%" }}>
+          <Card title={user.name || "Loading..."} loading={loading}>
+            <p>Email: {user.email}</p>
+            <p>Phone: {user.phone}</p>
+            <p>Website: {user.website}</p>
+          </Card>
+          <Card title="Albums" loading={loading}>
+            {loading ? (
+              <Spin />
+            ) : (
+              // render a list of albums not in a table
+              <Table
+                dataSource={albums}
+                columns={columns}
+                rowKey="id"
+                sticky
+              />
+            )}
+          </Card>
+        </Space>
       </Content>
     </Layout>
   );
