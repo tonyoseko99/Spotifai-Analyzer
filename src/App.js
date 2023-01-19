@@ -8,6 +8,7 @@ import Home from "./components/Home";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import User from "./components/User";
+import Album from "./components/Album";
 
 function App() {
   return (
@@ -17,9 +18,10 @@ function App() {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/users" element={<Home />} />
+          <Route path="/users/:id" element={<User />} />
+          <Route path="/albums/:id" element={<Album />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/users/:id" element={<User />} />
         </Routes>
         <Footer />
       </Router>
