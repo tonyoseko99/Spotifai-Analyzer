@@ -131,7 +131,8 @@
 }
 
 /* user-layout */
-.user-layout {
+.user-layout,
+.album-layout {
   background: linear-gradient(90deg, #c0c0c0 0%, #e9f7ff 100%);
   width: 100%;
   color: #f5f5f5;
