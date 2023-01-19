@@ -13,3 +13,10 @@ export const fetchAlbums = async () => {
   const albums = await response.json();
   return albums;
 };
+
+// fetch photos from 'https://jsonplaceholder.typicode.com/photos'
+export const fetchPhotos = async () => {
+  const response = await fetch("https://jsonplaceholder.typicode.com/photos");
+  const photos = await response.json();
+  return photos;
+};

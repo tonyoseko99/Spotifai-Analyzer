@@ -64,6 +64,15 @@ function User() {
                 columns={columns}
                 rowKey="id"
                 sticky
+                onRow={(record, rowIndex) => {
+                  return {
+                    onClick: (event) => {
+                      window.location.href = `/albums/${record.id}`;
+                      //   pass the album id to the album page
+                      
+                    },
+                  };
+                }}
               />
             )}
           </Card>
