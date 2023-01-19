@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { fetchPhoto, updatePhoto } from "../API/data";
 import { useParams } from "react-router-dom";
 import { Card, Layout, Typography, Spin, Form, Input, Button } from "antd";
+import { Content } from "antd/es/layout/layout";
 
 function Photo() {
   const { id } = useParams();
@@ -30,8 +31,8 @@ function Photo() {
   };
 
   return (
-    <div className="photo">
-      <Layout className="photo-layout">
+    <Layout className="photo-layout">
+      <Content className="photo-content">
         <Typography.Title level={2} style={{ textAlign: "center" }}>
           Update Photo
         </Typography.Title>
@@ -64,8 +65,11 @@ function Photo() {
             </Form.Item>
           </Form>
         )}
-      </Layout>
-    </div>
+        <Card title={photo.title || "Loading..."} loading={loading}>
+          <img src={photo.url} alt={photo.title} style={{maxHeight: "100%", maxWidth: "100%"}} />
+        </Card>
+      </Content>
+    </Layout>
   );
 }
 
