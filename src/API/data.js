@@ -30,4 +30,18 @@ export const fetchPhoto = async (id) => {
   return photo;
 };
 
-
+// update photo from 'https://jsonplaceholder.typicode.com/photos/:id'
+export const updatePhoto = async (id, data) => {
+  const response = await fetch(
+    `https://jsonplaceholder.typicode.com/photos/${id}`,
+    {
+      method: "PUT",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    }
+  );
+  const photo = await response.json();
+  return photo;
+};
