@@ -37,6 +37,13 @@ function User() {
       dataIndex: "title",
       key: "title",
     },
+    {
+      title: "Operation",
+      dataIndex: "operation",
+      key: "operation",
+      width: "auto",
+      render: () => <a>View Album</a>,
+    },
   ];
 
   return (
@@ -61,6 +68,7 @@ function User() {
             ) : (
               // render a list of albums not in a table
               <Table
+                tableLayout="auto"
                 dataSource={albums}
                 columns={columns}
                 rowKey="id"

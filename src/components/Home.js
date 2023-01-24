@@ -36,6 +36,7 @@ function Home() {
       title: "Name",
       dataIndex: "name",
       key: "name",
+      fixed: "left",
     },
     {
       title: "Website",
@@ -48,11 +49,19 @@ function Home() {
       key: "company",
       render: (company) => company["name"],
     },
-    
+
     {
       title: "Albums",
       dataIndex: "albums",
       key: "albums",
+      fixed: "right",
+    },
+    {
+      title: "Operation",
+      dataIndex: "operation",
+      key: "operation",
+      fixed: "right",
+      render: () => <a>View</a>,
     },
   ];
 
@@ -64,7 +73,8 @@ function Home() {
           columns={columns}
           dataSource={users}
           rowKey="id"
-          scroll={{ x: 500 }}
+          bordered
+          pagination={{ pageSize: 10 }}
           sticky // sticky header
           onRow={(record, rowIndex) => {
             return {

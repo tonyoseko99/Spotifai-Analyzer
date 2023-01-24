@@ -6,13 +6,32 @@ const Register = () => {
   const [form] = Form.useForm();
   const [formError, setFormError] = useState(null);
 
-  const onFinish = (values) => {
-    // handle successful login here
-    console.log("Received values of form: ", values);
-  };
-
   const onFinishFailed = (errorInfo) => {
     setFormError(errorInfo.errorFields[0].errors[0]);
+  };
+
+  // handle form submit
+  const handleFormSubmit = async (values) => {
+    try {
+      const response = await fetch("http://localhost:4000/auth/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
+      const results = await response.json();
+      if (response.ok) {
+        // handle successul signup here
+        console.log(results);
+        alert("Signup successful");
+        window.location.href = "/login";
+      } else {
+        setFormError(results.message);
+      }
+    } catch (error) {
+      setFormError(error.message);
+    }
   };
 
   return (
@@ -21,11 +40,20 @@ const Register = () => {
       name="normal_login"
       className="login-form"
       initialValues={{ remember: true }}
-      onFinish={onFinish}
+      onFinish={handleFormSubmit}
       onFinishFailed={onFinishFailed}
     >
       <Space direction="vertical" align="center" style={{ width: "100%" }}>
         <Typography.Title level={2}>Register</Typography.Title>
+        <Form.Item
+          name="name"
+          rules={[{ required: true, message: "Please input your name!" }]}
+        >
+          <Input
+            prefix={<UserOutlined className="site-form-item-icon" />}
+            placeholder="Full Name"
+          />
+        </Form.Item>
         <Form.Item
           name="username"
           rules={[{ required: true, message: "Please input your Username!" }]}
@@ -33,6 +61,15 @@ const Register = () => {
           <Input
             prefix={<UserOutlined className="site-form-item-icon" />}
             placeholder="Username"
+          />
+        </Form.Item>
+        <Form.Item
+          name="email"
+          rules={[{ required: true, message: "Please input your email!" }]}
+        >
+          <Input
+            prefix={<UserOutlined className="site-form-item-icon" />}
+            placeholder="somebody@domain.com"
           />
         </Form.Item>
         <Form.Item
@@ -55,7 +92,11 @@ const Register = () => {
           </a>
         </Form.Item>
 
-        {formError && <div className="form-error">{formError}</div>}
+        {formError && (
+          <div className="form-error" type="primary">
+            {formError}
+          </div>
+        )}
 
         <Form.Item>
           <Button
@@ -64,9 +105,9 @@ const Register = () => {
             className="login-form-button"
             block
           >
-            Log in
+            Register
           </Button>
-          have an account?<a href="/login">sign in</a>
+          have an account? <a href="/login">sign in</a>
         </Form.Item>
       </Space>
     </Form>

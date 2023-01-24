@@ -45,3 +45,4 @@ export const updatePhoto = async (id, data) => {
   const photo = await response.json();
   return photo;
 };
+
