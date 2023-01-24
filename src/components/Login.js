@@ -7,9 +7,28 @@ const Login = () => {
   const [form] = Form.useForm();
   const [formError, setFormError] = useState(null);
 
-  const onFinish = (values) => {
-    // handle successful login here
-    console.log("Received values of form: ", values);
+  //  handle login form submit
+  const handleFormSubmit = async (values) => {
+    try {
+      const response = await fetch("http://localhost:4000/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
+      const results = await response.json();
+      if (response.ok) {
+        // handle successful login here
+        console.log(results);
+        alert("Login successful");
+        window.location.href = "/";
+      } else {
+        setFormError(results.message);
+      }
+    } catch (error) {
+      setFormError(error.message);
+    }
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -22,18 +41,19 @@ const Login = () => {
       name="normal_login"
       className="login-form"
       initialValues={{ remember: true }}
-      onFinish={onFinish}
+      onFinish={handleFormSubmit}
       onFinishFailed={onFinishFailed}
     >
       <Space direction="vertical" align="center" style={{ width: "100%" }}>
         <Typography.Title level={2}>Login</Typography.Title>
         <Form.Item
-          name="username"
+          name="email"
           rules={[{ required: true, message: "Please input your Username!" }]}
         >
           <Input
             prefix={<UserOutlined className="site-form-item-icon" />}
-            placeholder="Username"
+            type="email"
+            placeholder="email@company.com"
           />
         </Form.Item>
         <Form.Item
