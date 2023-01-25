@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Button, Layout, Typography, Carousel } from "antd";
+import {AuthContext} from "../AuthContext/AuthContext";
 const contentStyle = {
   height: "160px",
   color: "#fff",
@@ -12,6 +13,8 @@ const contentStyle = {
 const LandingPage = () => {
   const { Content } = Layout;
   const { Title } = Typography;
+
+  const { authenticated } = useContext(AuthContext);
 
   return (
     <Layout className="landingPage">
@@ -31,14 +34,20 @@ const LandingPage = () => {
           Galleria is your home of art. We have a wide range of art pieces from
           different artists.
         </Title>
-        <Link to="/users">
-          <Button
-            type="primary"
-            block
-          >
-            Get Started
-          </Button>
-        </Link>
+        {/* redirect to /users if user is authenticated */}
+        {authenticated ? (
+          <Link to="/users">
+            <Button type="primary" size="large">
+              View Users
+            </Button>
+          </Link>
+        ) : (
+          <Link to="/login">
+            <Button type="primary" size="large">
+              Login
+            </Button>
+          </Link>
+        )}
       </Content>
     </Layout>
   );

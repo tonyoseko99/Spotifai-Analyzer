@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { AuthContext, AuthProvider } from "../AuthContext/AuthContext";
 import { Form, Input, Button, Checkbox, Space, Typography } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 
@@ -7,8 +7,10 @@ const Login = () => {
   const [form] = Form.useForm();
   const [formError, setFormError] = useState(null);
 
+  const { login } = useContext(AuthContext);
+
   //  handle login form submit
-  const handleFormSubmit = async (values) => {
+  const handleLogin = async (values) => {
     try {
       const response = await fetch("http://localhost:4000/auth/login", {
         method: "POST",
@@ -22,13 +24,17 @@ const Login = () => {
         // handle successful login here
         console.log(results);
         alert("Login successful");
-        window.location.href = "/";
+        window.location.href = "/users";
       } else {
         setFormError(results.message);
       }
     } catch (error) {
       setFormError(error.message);
     }
+
+    const data = { email: values.email, password: values.password };
+    const token = localStorage.getItem("token");
+    login(data, token);
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -41,7 +47,7 @@ const Login = () => {
       name="normal_login"
       className="login-form"
       initialValues={{ remember: true }}
-      onFinish={handleFormSubmit}
+      onFinish={handleLogin}
       onFinishFailed={onFinishFailed}
     >
       <Space direction="vertical" align="center" style={{ width: "100%" }}>
@@ -94,4 +100,9 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default () => (
+  <AuthProvider>
+    <Login />
+  </AuthProvider>
+);
+

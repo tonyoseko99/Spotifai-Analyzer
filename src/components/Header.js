@@ -1,25 +1,45 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Layout, Button } from "antd";
 
 const { Header } = Layout;
 
 const AppHeader = () => {
+  const [isLoggedin, setIsLoggedin] = useState(false);
+
+  const token = localStorage.getItem("token");
+
+  // check if user is logged in
+  useEffect(() => {
+    if (token) {
+      setIsLoggedin(true);
+    }
+  }, [token]);
+
+  // handle user logout
+  const handleLogout = () => {
+    // remove token from local storage
+    localStorage.removeItem("token");
+    // set isLoggedin to false
+    setIsLoggedin(false);
+  };
+
   return (
     <Header className="appHeader">
-      <div>
-        <a href="/">
-          <span style={{ color: "white", fontSize: "1.5rem" }} id="logo">
-            Galleria
-          </span>
-        </a>
-        <a
-          href="/login"
-          type="dark"
-          style={{ color: "white", fontSize: "1rem" }}
-        >
-          Sign In
-        </a>
+      <div className="logo" />
+      <div className="headerLinks">
+        <Link to="/">Home</Link>
+        <Link to="/users">Users</Link>
+        {isLoggedin ? (
+          <Button type="primary" onClick={handleLogout}>
+            Logout
+          </Button>
+        ) : (
+          <>
+            <Link to="/login" style={{float: "right"}}>Login</Link>
+            <Link to="/register">Register</Link>
+          </>
+        )}
       </div>
     </Header>
   );
