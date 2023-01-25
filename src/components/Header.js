@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Layout, Button, Menu } from "antd";
+import { Layout, Button, Menu, Divider } from "antd";
 
 const { Header } = Layout;
 
@@ -32,12 +32,15 @@ const AppHeader = () => {
         <Menu.Item key="1">
           <Link to="/">Home</Link>
         </Menu.Item>
+        <Divider type="vertical" />
         {isLoggedin ? (
           <>
             <Menu.Item key="2">
               <Link to="/users">Users</Link>
             </Menu.Item>
+            <Divider type="vertical" />
             <Menu.Item key="3">
+              {/* logout */}
               <Button type="link" onClick={handleLogout}>
                 Logout
               </Button>
