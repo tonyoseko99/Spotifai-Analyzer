@@ -66,17 +66,21 @@
 }
 
 /* Navigation */
-
-.headerLinks {
+.menu {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
-  margin: 10px 30px;
+  margin: 0 auto;
 }
 
-.headerLinkItem, .headerlinkItem{
-  margin: 0 auto;
+.menu-right {
+  display: flex;
+  flex-direction: row;
+}
+
+#menu-users {
+  float: left !important;
 }
 
 /* landing page */
@@ -192,3 +196,16 @@
   font-size: 16px;
 }
 /* end of footer section */
+
+/* MEDIA QUERIES */
+@media (max-width: 768px) {
+  /* home-table */
+  .home-table {
+    width: 100%;
+    overflow-x: scroll;
+  }
+}
+
+/* end of media queries */
+
+/* end of global styles */

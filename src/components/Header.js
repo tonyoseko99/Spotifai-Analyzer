@@ -28,17 +28,24 @@ const AppHeader = () => {
 
   return (
     <Header className="appHeader">
-      <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["1"]}>
-        <Menu.Item key="1">
-          <Link to="/">Home</Link>
-        </Menu.Item>
+      <Menu
+        theme="dark"
+        mode="horizontal"
+        defaultSelectedKeys={["1"]}
+        className="menu"
+      >
+        <>
+          <Menu.Item key="1">
+            <Link to="/">Home</Link>
+          </Menu.Item>
+        </>
         <Divider type="vertical" />
         {isLoggedin ? (
           <>
-            <Menu.Item key="2">
-              <Link to="/users">Users</Link>
+            <Menu.Item key="2" id="menu-users">
+              <Link to="/users">Artists</Link>
             </Menu.Item>
-            <Divider type="vertical" />
+
             <Menu.Item key="3">
               {/* logout */}
               <Button type="link" onClick={handleLogout}>
@@ -47,14 +54,14 @@ const AppHeader = () => {
             </Menu.Item>
           </>
         ) : (
-          <>
+          <span className="menu-right">
             <Menu.Item key="2">
               <Link to="/login">Login</Link>
             </Menu.Item>
             <Menu.Item key="3">
               <Link to="/register">Register</Link>
             </Menu.Item>
-          </>
+          </span>
         )}
       </Menu>
     </Header>

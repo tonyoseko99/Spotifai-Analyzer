@@ -69,6 +69,7 @@ function Home() {
     <Layout className="home-layout">
       <Card title="Users" loading={loading} className="home-card">
         <Table
+          className="home-table"
           style={{ width: "100%" }}
           columns={columns}
           dataSource={users}
