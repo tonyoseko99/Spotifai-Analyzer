@@ -65,6 +65,20 @@
   cursor: pointer;
 }
 
+/* Navigation */
+
+.headerLinks {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  margin: 10px 30px;
+}
+
+.headerLinkItem, .headerlinkItem{
+  margin: 0 auto;
+}
+
 /* landing page */
 .landingPage {
   width: 100%;
@@ -155,12 +169,12 @@
 
 /* user-content */
 .user-content {
-  padding: 0 50px;;
+  padding: 0 50px;
   margin: 0 auto;
   width: fit-content;
 }
 
-.card{
+.card {
   width: auto;
   margin: 0 auto;
 }

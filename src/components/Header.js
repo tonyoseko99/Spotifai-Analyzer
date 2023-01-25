@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Layout, Button } from "antd";
+import { Layout, Button, Menu } from "antd";
 
 const { Header } = Layout;
 
@@ -22,25 +22,38 @@ const AppHeader = () => {
     localStorage.removeItem("token");
     // set isLoggedin to false
     setIsLoggedin(false);
+    // redirect to login page
+    window.location.href = "/";
   };
 
   return (
     <Header className="appHeader">
-      <div className="logo" />
-      <div className="headerLinks">
-        <Link to="/">Home</Link>
-        <Link to="/users">Users</Link>
+      <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["1"]}>
+        <Menu.Item key="1">
+          <Link to="/">Home</Link>
+        </Menu.Item>
         {isLoggedin ? (
-          <Button type="primary" onClick={handleLogout}>
-            Logout
-          </Button>
+          <>
+            <Menu.Item key="2">
+              <Link to="/users">Users</Link>
+            </Menu.Item>
+            <Menu.Item key="3">
+              <Button type="link" onClick={handleLogout}>
+                Logout
+              </Button>
+            </Menu.Item>
+          </>
         ) : (
           <>
-            <Link to="/login" style={{float: "right"}}>Login</Link>
-            <Link to="/register">Register</Link>
+            <Menu.Item key="2">
+              <Link to="/login">Login</Link>
+            </Menu.Item>
+            <Menu.Item key="3">
+              <Link to="/register">Register</Link>
+            </Menu.Item>
           </>
         )}
-      </div>
+      </Menu>
     </Header>
   );
 };
