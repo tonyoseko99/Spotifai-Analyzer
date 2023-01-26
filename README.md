@@ -6,7 +6,7 @@ This is a React Gallery App that uses the jsonplaceholder API to fetch data and 
 
 ## Screenshots
 
-![Screenshot 1](../src/Assets/screenshot.png?raw=true "Screenshot 1")
+![Galleria](/src/Assets/screenshot.png "Galleria")
 
 ## Features
 
@@ -39,10 +39,6 @@ This is a React Gallery App that uses the jsonplaceholder API to fetch data and 
 - [x] Uses bcrypt for password hashing
 - [x] Uses mongoose for database modeling and validation
 
-## User Authorization
-
-- [x] User can update a photo
-
 ## User Roles
 
 - [x] User can view all photos
@@ -66,4 +62,4 @@ Run `npm start` to start the development server.
 
 ## Author
 
-[Tonny Oseko](
+[Tonny Oseko]
