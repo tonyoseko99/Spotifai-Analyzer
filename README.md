@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a React Gallery App that uses the jsonplaceholder API to fetch data and display it in a gallery. The app is built using React, React Router.
+This is a React Gallery App that uses the jsonplaceholder API to fetch data and display it in a gallery. The app is built using React, Ant Design, and the jsonplaceholder API. The app also has user authentication and user roles.
 
 ## Screenshots
 
