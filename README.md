@@ -39,6 +39,9 @@ This is a React Gallery App that uses the jsonplaceholder API to fetch data and 
 - [x] Uses bcrypt for password hashing
 - [x] Uses mongoose for database modeling and validation
 
+- Node JS API for user authentication: `https://github.com/tonyoseko99/galleria-node-api`
+- Hosted on Render at: `https://galleria-auth.onrender.com/`
+
 ## User Roles
 
 - [x] User can view all photos
