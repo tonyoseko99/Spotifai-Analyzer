@@ -7,6 +7,7 @@ const { Header } = Layout;
 const AppHeader = () => {
   const [isLoggedin, setIsLoggedin] = useState(false);
 
+  // get token from local storage
   const token = localStorage.getItem("token");
 
   // check if user is logged in
