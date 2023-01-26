@@ -20,10 +20,10 @@ This is a React Gallery App that uses the jsonplaceholder API to fetch data and 
 
 ## Technologies
 
-- [React](https://reactjs.org/)
-- [JavaScript](https://www.javascript.com/)
 - [HTML](https://html.com/)
 - [CSS](https://www.w3.org/Style/CSS/Overview.en.html)
+- [React](https://reactjs.org/)
+- [JavaScript](https://www.javascript.com/)
 - [Ant Design](https://ant.design/)
 - [MongoDB](https://www.mongodb.com/)
 - [Node.js](https://nodejs.org/en/)
