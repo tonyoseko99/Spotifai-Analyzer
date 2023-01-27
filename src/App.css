@@ -77,7 +77,9 @@
 .menu-right {
   display: flex;
   flex-direction: row;
+
 }
+
 
 #menu-users {
   float: left !important;

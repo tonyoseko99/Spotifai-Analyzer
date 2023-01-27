@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { Form, Input, Button, Checkbox, Space, Typography } from "antd";
+import { Form, Input, Button, Checkbox, Space, Typography, message } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
+
+const { Text } = Typography;
 
 const Register = () => {
   const [form] = Form.useForm();
@@ -13,18 +15,21 @@ const Register = () => {
   // handle form submit
   const handleFormSubmit = async (values) => {
     try {
-      const response = await fetch("https://galleria-auth.onrender.com/auth/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(values),
-      });
+      const response = await fetch(
+        "http://localhost:4000/auth/signup",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(values),
+        }
+      );
       const results = await response.json();
       if (response.ok) {
         // handle successul signup here
         console.log(results);
-        alert("Signup successful");
+        message.success("Signup successful");
         window.location.href = "/login";
       } else {
         setFormError(results.message);
@@ -93,9 +98,9 @@ const Register = () => {
         </Form.Item>
 
         {formError && (
-          <div className="form-error" type="primary">
+          <Text type="danger" style={{ textAlign: "center" }}>
             {formError}
-          </div>
+          </Text>
         )}
 
         <Form.Item>
@@ -103,11 +108,12 @@ const Register = () => {
             type="primary"
             htmlType="submit"
             className="login-form-button"
+            // set block to true to make button full width
             block
           >
             Register
           </Button>
-          have an account? <a href="/login">sign in</a>
+          Or <a href="/login">login now!</a>
         </Form.Item>
       </Space>
     </Form>

@@ -3,22 +3,29 @@ import { AuthContext, AuthProvider } from "../AuthContext/AuthContext";
 import { Form, Input, Button, Checkbox, Space, Typography } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 
+const { Text } = Typography;
+
 const Login = () => {
   const [form] = Form.useForm();
   const [formError, setFormError] = useState(null);
+
+  const [loading, setLoading] = useState(false);
 
   const { login } = useContext(AuthContext);
 
   //  handle login form submit
   const handleLogin = async (values) => {
     try {
-      const response = await fetch("https://galleria-auth.onrender.com/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(values),
-      });
+      const response = await fetch(
+        "http://localhost:4000/auth/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(values),
+        }
+      );
       const results = await response.json();
       if (response.ok) {
         // handle successful login here
@@ -49,6 +56,7 @@ const Login = () => {
       initialValues={{ remember: true }}
       onFinish={handleLogin}
       onFinishFailed={onFinishFailed}
+      message={formError}
     >
       <Space direction="vertical" align="center" style={{ width: "100%" }}>
         <Typography.Title level={2}>Login</Typography.Title>
@@ -82,7 +90,7 @@ const Login = () => {
           </a>
         </Form.Item>
 
-        {formError && <div className="form-error">{formError}</div>}
+        <Text type="danger">{formError}</Text>
 
         <Form.Item>
           <Button
@@ -93,7 +101,10 @@ const Login = () => {
           >
             Log in
           </Button>
-          new user? <a href="/register">register now!</a>
+          <Text type="secondary">Or</Text>
+          <Button type="link" href="/register">
+            Register now!
+          </Button>
         </Form.Item>
       </Space>
     </Form>
@@ -105,4 +116,3 @@ export default () => (
     <Login />
   </AuthProvider>
 );
-
